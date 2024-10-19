@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+<div class="example-wrapper py-5">
+    <h1>Liste des livres</h1>
+    <a href="{{path('app_admin_book_new')}}" class="btn btn-primary mb-3 mt-3">Ajouter un livre</a>
+    <ul class="list-group list-group-flush">
+        {% for book in books %}
+            <div class="card mb-1">
+                <div class="card-body">
+                    <div class="card-title d-flex justify-content-between">
+                        <a href="{{ path('app_admin_book_edit',{id: book.id}) }}" class="stretched-link link-dark">
+                            <h4 class="mb-1">{{ book.title }}</h4>
+                        </a>
+                        <small class="text-muted">Identifiant : {{ book.id }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

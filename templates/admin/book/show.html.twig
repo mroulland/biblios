@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche de {{ book.name }}{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Auteur : </h1>
+    {% if book is not null %}
+        <div class="card mb-1 m-auto">
+            <div class="card-body">
+                <div class="card-title d-flex justify-content-between">
+                    <h4 class="mb-1">{{ book.name }}</h4>
+                    <small class="text-muted">Identifiant : {{ book.id }}</small>
+                </div>
+                <div class="d-flex justify-content-between card-text">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Date de naissance : {{ book.dateOfBirth | date('d M Y') }}</li>
+                        <li class="list-group-item">Date de décès : {{ book.dateOfDeath is not null ? book.dateOfDeath | date('d M Y') : '-'}}</li>
+                    </ul>
+                    <p><small>Nationalité : {{ book.nationality | country_name}}</small></p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div>Auteur non trouvé</div>
+    {% endif %}
+
+    <a href="{{ path('app_admin_book_index') }}" class="btn btn-primary mt-2
+    ">Retour</a>
+</div>
+{% endblock %}
