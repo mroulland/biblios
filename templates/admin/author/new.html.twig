@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% set action = app.current_route == 'app_admin_author_new' ? 'Ajout' : 'Edition' %}
+
+{% block title %}{{action}} d'auteur{% endblock %}
+
+{% block body %}
+    
+    <div class="example-wrapper py-5">
+        <h1>{{action}} d'auteur</h1>
+        
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

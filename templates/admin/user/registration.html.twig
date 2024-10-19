@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <section class="mt-5 m-auto w-75 p-3">
+        <h1>Enregistrement</h1>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+        <span><small>* : champs requis</small></span>
+        {{ form_widget(registrationForm) }}
+
+            <button type="submit" class="btn btn-primary">Inscription</button>
+        {{ form_end(registrationForm) }}
+    </section>
+{% endblock %}
